@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if name %}
+{{ name }}
+{{ sure }}
+{{ email }}
+{% else %}
+    welcome stranger!
+{% endif %}
+
+<form action="" method="post">
+
+    {{ nameform.name.label }}{{ nameform.name() }}
+    {{ nameform.surename.label }}{{ nameform.surename() }}
+    {{ nameform.email.label }}{{ nameform.email() }}
+    {{ nameform.hidden_tag() }}
+
+
+
+    {{ nameform.submit() }}
+    {% if nameform.email.errors %}
+        <h3>You have an error in filling data</h3>
+        {% for error in nameform.email.errors %}
+         <p>{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+
+</form>
+</body>
+</html>
